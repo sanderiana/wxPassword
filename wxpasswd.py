@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 # ---------------------------------------------------------------
-# wxpass.py
+# wxpasswd.py
 #
 # Copyright (c) 2019 sanderiana https://github.com/sanderiana
 #
@@ -166,7 +166,7 @@ if __name__ == '__main__':
 
     warnings.simplefilter("ignore")
     icon = wx.EmptyIcon()
-    icon_file = os.path.dirname(__file__) + '/wxpass.png'
+    icon_file = os.path.dirname(__file__) + '/wxpasswd.png'
     icon_source = wx.Image(icon_file, wx.BITMAP_TYPE_PNG)
     icon.CopyFromBitmap(icon_source.ConvertToBitmap())
     frame.SetIcon(icon)

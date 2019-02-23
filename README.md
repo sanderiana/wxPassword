@@ -1,4 +1,4 @@
-# wxpass.py
+# wxpasswd.py
 Python and wxPython Learning Trail  
 This script accepts mouse click and key input.   
 This outputs text converted with sha256 to stdout.
@@ -6,12 +6,12 @@ This outputs text converted with sha256 to stdout.
 ## Usage
 Basic usage
 ```sh
-$ wxpass.py 
+$ wxpasswd.py 
 ```
 
 If you want to change window titie.
 ```sh
-$ wxpass.py "title" 
+$ wxpasswd.py "title" 
 ```
 
 ## Requirements
