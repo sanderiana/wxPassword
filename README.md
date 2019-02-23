@@ -54,7 +54,7 @@ sudo pip install -U --no-cache-dir \
 ```
 
 ## Install
-please put wxpass.* files to directory in the path.
+please put wxpasswd.* files to directory in the path.
 
 ## Credits
 <div>Icon: <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> 
