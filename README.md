@@ -4,14 +4,15 @@ This script accepts mouse click and key input.
 This outputs text converted with sha256 to stdout.
 
 ## Usage
-Basic usage
 ```sh
-$ wxpasswd.py 
-```
+usage: wxpasswd.py [-h] [--title TITLE] [--hash {sha256,md5}]
 
-If you want to change window titie.
-```sh
-$ wxpasswd.py "title" 
+password input window
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --title TITLE        window title
+  --hash {sha256,md5}  encode type
 ```
 
 ## Requirements
