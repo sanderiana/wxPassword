@@ -1,7 +1,6 @@
 # wxpasswd.py
 Python and wxPython Learning Trail  
-This script accepts mouse click and key input.   
-This outputs text converted with sha256 to stdout.
+This script accepts mouse click and key input and print them to stdout.
 
 ## Usage
 ```sh
