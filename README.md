@@ -1,6 +1,6 @@
 # wxpasswd.py
-Python and wxPython Learning Trail  
-This script accepts mouse click and key input and print them to stdout.
+Python and wxPython Learning Trail.  
+This script accepts mouse clicks and key inputs and prints them to stdout.
 
 ## Usage
 ```sh
