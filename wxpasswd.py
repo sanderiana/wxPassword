@@ -26,6 +26,12 @@ class WxPassWindow(wx.Frame):
     APP_HEIGHT = 90 * 3
     COLOUR_DIFF = -160
 
+    POS_TYPE_TOP_LEFT = 1
+    POS_TYPE_TOP_RIGHT = 2
+    POS_TYPE_BOTTOM_LEFT = 3
+    POS_TYPE_BOTTOM_RIGHT = 4
+    POS_TYPE_CENTER = 5
+
     def __init__(self, title, hash_type=None):
         self.button_dict = {}
         self.button_num = {}
@@ -36,14 +42,14 @@ class WxPassWindow(wx.Frame):
         self.InitializeComponents(title)
 
     def InitializeComponents(self, title):
-        pos = self.GetWindowPos()
-        wx.Frame.__init__(self, parent=None, title=title, pos=pos, size=(self.APP_WIDTH, self.APP_HEIGHT))
+        wx.Frame.__init__(self, parent=None, title=title, size=(self.APP_WIDTH, self.APP_HEIGHT))
         self.Bind(wx.EVT_ENTER_WINDOW, self.OnMouseOver)
         self.Bind(wx.EVT_LEAVE_WINDOW, self.OnMouseLeave)
         self.Bind(wx.EVT_CHAR,self.OnInputKey)
         self.SetBaseColour(self.GetBackgroundColour())
         self.SetForegroundColour(self.fore_colour)
         self.SetCanFocus(True)
+        self.SetWindowPositionBy(self.POS_TYPE_CENTER)
 
         main_panel = wx.Panel(self)
         sizer = wx.GridBagSizer()
@@ -108,16 +114,33 @@ class WxPassWindow(wx.Frame):
         self.fore_colour = wx.Colour(fore[0], fore[1], fore[2], fore[3])
         self.back_colour = back_colour
 
-    def GetWindowPos(self):
+    def GetWindowPosition(self, pos_type=None):
         w = wx.SystemSettings.GetMetric(wx.SYS_SCREEN_X)
         h = wx.SystemSettings.GetMetric(wx.SYS_SCREEN_Y)
-        x = w / 2
-        y = h / 2
 
-        x -= (self.APP_WIDTH / 2)
-        y -= (self.APP_HEIGHT / 2)
-        pos = (x, y)
+        pos = (0, 0)
+        if pos_type is None:
+            pos_type = self.POS_TYPE_CENTER
+
+        if pos_type == self.POS_TYPE_TOP_LEFT:
+            pos = (0, 0)
+        elif pos_type == self.POS_TYPE_TOP_RIGHT:
+            pos = (w - self.APP_WIDTH, 0)
+        elif pos_type == self.POS_TYPE_BOTTOM_LEFT:
+            pos = (0, h - self.APP_HEIGHT)
+        elif pos_type == self.POS_TYPE_BOTTOM_RIGHT:
+            pos = (w - self.APP_WIDTH, h-self.APP_HEIGHT)
+        elif pos_type == self.POS_TYPE_CENTER:
+            x = w / 2
+            y = h / 2
+            x -= (self.APP_WIDTH / 2)
+            y -= (self.APP_HEIGHT / 2)
+            pos = (x, y)
         return pos
+
+    def SetWindowPositionBy(self, pos_type):
+        position = self.GetWindowPosition(pos_type)
+        self.SetPosition(position)
 
     def ChangeButtonLabel(self):
         label_list = list(range(0,10))
